@@ -1,6 +1,6 @@
 # Model weights
 weights/*.h5
-tf_serving/*/
+serving/tf_serving/*/
 
 # Dataset
 data/*/
