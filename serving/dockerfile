@@ -1,0 +1,17 @@
+# Pull latest image of tensorflow serving
+FROM tensorflow/serving:latest
+
+# Copy saved model into docker image
+COPY . /
+
+# Expose ports
+# gRPC
+EXPOSE 8500
+# REST
+EXPOSE 8501
+
+# Contains necessary arguments with command to run tf serving
+ENTRYPOINT ["/usr/bin/tf_serving_entrypoint.sh"]
+
+# Overriding default arguments
+CMD ["--model_name=malaria", "--model_base_path=/tf_serving"]
